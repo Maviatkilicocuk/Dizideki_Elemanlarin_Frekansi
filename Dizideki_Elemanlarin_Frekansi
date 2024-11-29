@@ -1,0 +1,55 @@
+package Diziler;
+
+import java.util.Scanner;
+
+public class Dizideki_Elemanlarin_Frekansi {
+
+    int size;
+    int [] list;
+    int count;
+
+    public void boyut(){
+        Scanner input = new Scanner(System.in);
+        System.out.print("Lütfen dizinin boyutunu giriniz : ");
+        size = input.nextInt();
+        list = new int [size];
+    }
+
+    public void girdi() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Dizinin elemanlarını giriniz : ");
+        for (int i = 0; i < list.length; i++) {
+            System.out.print(i + ". elemanı : ");
+            list[i] = input.nextInt();
+        }
+    }
+
+    public void tekrar(){
+        boolean[] tekrar = new boolean[list.length];
+        for (int i = 0; i < list.length; i++){
+            if (tekrar[i]){
+                continue;
+            }
+            count=1;
+            for(int j = i + 1; j < list.length; j++){
+                if(list[i]==list[j]){
+                    count ++;
+                    tekrar[j] = true;
+                }
+            }
+            System.out.println(list[i]+ " " +count+ " kere tekrar etmiştir. ");
+        }
+    }
+    public static void main(String[] args) {
+
+        Dizideki_Elemanlarin_Frekansi dizi = new Dizideki_Elemanlarin_Frekansi();
+        dizi.boyut();
+        dizi.girdi();
+        dizi.tekrar();
+
+
+
+
+
+    }
+}
